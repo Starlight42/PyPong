@@ -1,0 +1,5 @@
+# Ignoring PyCharm settings folder
+.idea
+
+# Ignoring PyCache folder
+__pycache__
