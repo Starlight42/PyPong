@@ -11,14 +11,9 @@ class Racket():
         self.pos = [5, (self.screen_h - self.img.get_height()) // 2]
 
     def render(self):
-        pygame.draw.rect(self.screen, (0, 0, 0), (0, 0, SCREEN_W, SCREEN_H))
         self.screen.blit(self.img, self.pos)
-        print("Racket img height : {}".format(self.img.get_height()))
-        print("Racket size : {}".format(self.img.get_size()))
-        print("Racket pos : {}".format(self.pos))
 
     def move(self, vec: int=STALL):
-        print("Racket Pos x : {}\nRacket Pos y : {}".format(self.pos[0], self.pos[1]))
         if vec == UP:
             if self.pos[1] - RACKET_SPEED >= 0:
                 self.pos[1] -= RACKET_SPEED
