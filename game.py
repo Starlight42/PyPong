@@ -6,13 +6,15 @@ from ball import Ball
 
 class Game():
     def __init__(self, screen: pygame.Surface):
-        self.screen = screen
         self.GAME_RUN = True
+        self.FPSCLOCK = None
+        self.screen = screen
         self.racket_p1 = Racket(self.screen)
         self.ball = Ball(self.screen)
 
     def setup(self):
         pygame.key.set_repeat(200, 50)
+        self.FPSCLOCK = pygame.time.Clock()
         self.GAME_RUN = True
         self.racket_p1 = Racket(self.screen)
         self.ball = Ball(self.screen)
@@ -33,10 +35,10 @@ class Game():
 
         if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
             self.GAME_RUN = False
-            print("Ending the game...")
+            print('Ending the game...')
 
     def start(self):
-        print("Starting the game...")
+        print('Starting the game...')
         self.setup()
 
         while self.GAME_RUN:
@@ -46,3 +48,4 @@ class Game():
             self.update_screen()
             self.ball.move(self.racket_p1)
             pygame.display.flip()
+            self.FPSCLOCK.tick(FPS)
