@@ -1,6 +1,9 @@
 import os
 from pygame.locals import K_UP, K_DOWN
 
+# Game settings constant
+FPS = 350
+
 # Screen constant
 SCREEN_H = 480
 SCREEN_W = 640
@@ -8,7 +11,7 @@ SCREEN_SIZE = (SCREEN_W, SCREEN_H)
 SCREEN_ORI = (0, 0)
 
 # Assets constant
-ASSETS_DIR = "assets/"
+ASSETS_DIR = 'assets/'
 BG_PATH = os.path.join(os.getcwd(), ASSETS_DIR + 'Start_screen.jpg')
 RACKET_P1 = os.path.join(os.getcwd(), ASSETS_DIR + 'Racket_p1.png')
 BALL = os.path.join(os.getcwd(), ASSETS_DIR + 'Ball.png')
