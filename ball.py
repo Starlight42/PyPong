@@ -7,7 +7,7 @@ class Ball():
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
         self.img = pygame.image.load(BALL).convert_alpha()
-        self.vec = [-BALL_SPEED, BALL_SPEED]
+        self.vec = [-1, -1]
         self.ball_h = self.img.get_height()
         self.ball_w = self.img.get_width()
         self.pos = [(self.screen.get_width() - self.ball_w) // 2,
@@ -17,15 +17,15 @@ class Ball():
         self.screen.blit(self.img, self.pos)
 
     def move(self, racket: Racket):
-        tmp = self.pos[0] + self.vec[0] * BALL_SPEED, self.pos[1] + self.vec[1] * BALL_SPEED
-        collision = racket.collision(tmp, (self.ball_w, self.ball_h))
+        if self.pos[1] <= 0 or self.pos[1] >= SCREEN_H - self.ball_h:
+            self.vec[1] *= -1
+        if self.pos[0] >= SCREEN_W - self.ball_w or self.pos[0] <= 0:
+            self.vec[0] *= -1
 
-        if collision or tmp[0] <= 0 or tmp[0] + self.ball_w >= self.screen.get_width():
-            self.vec[0] = - self.vec[0] + randint(100, 255) / 1000
-            self.vec[1] += randint(100, 255) / 1000
-        if tmp[1] <= 0 or tmp[1] + self.ball_h >= self.screen.get_height():
-            self.vec[0] += randint(100, 255) / 1000
-            self.vec[1] = - self.vec[1] + randint(100, 255) / 1000
+        if self.pos[1] == racket.pos[1] and self.pos[0] == racket.pos[0]:
+            self.vec[1] *= -1
+        #if self.pos[0] == racket.pos[0]:
+        #   self.vec[0] *= -1
 
         self.pos[0] += self.vec[0]
         self.pos[1] += self.vec[1]
