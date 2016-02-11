@@ -1,26 +1,26 @@
 import pygame
 from pygame.locals import *
 from constant import *
+from base_loop import BaseLoop
 from racket import Racket
 from ball import Ball
 
-class Game():
+class Game(BaseLoop):
     def __init__(self, screen: pygame.Surface):
-        self.GAME_RUN = True
+        super(Game, self).__init__(screen)
         self.FPSCLOCK = None
-        self.screen = screen
         self.racket_p1 = Racket(self.screen)
         self.ball = Ball(self.screen)
 
     def setup(self):
+        super(Game, self).setup()
         pygame.key.set_repeat(200, 50)
         self.FPSCLOCK = pygame.time.Clock()
-        self.GAME_RUN = True
         self.racket_p1 = Racket(self.screen)
         self.ball = Ball(self.screen)
 
     def update_screen(self):
-        pygame.draw.rect(self.screen, BLACK, (0, 0) + SCREEN_SIZE)
+        super(Game, self).update_screen()
         pygame.draw.rect(self.screen, WHITE, ((self.screen.get_width() // 2) - 1, 0, 2,
                                               self.screen.get_height()))
         self.racket_p1.render()
@@ -34,14 +34,14 @@ class Game():
                 self.racket_p1.move(DOWN)
 
         if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
-            self.GAME_RUN = False
+            self.LOOP_RUN = False
             print('Ending the game...')
 
     def start(self):
         print('Starting the game...')
-        self.setup()
+        super(Game, self).start()
 
-        while self.GAME_RUN:
+        while self.LOOP_RUN:
             for event in pygame.event.get():
                 self.process_event(event)
 

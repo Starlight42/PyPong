@@ -1,20 +1,18 @@
 import pygame
 from racket import Racket
 from constant import *
+from base_object import BaseObject
 from random import randint
 
-class Ball():
+class Ball(BaseObject):
     def __init__(self, screen: pygame.Surface):
-        self.screen = screen
+        super(Ball, self).__init__(screen)
         self.img = pygame.image.load(BALL).convert_alpha()
         self.vec = [-1, -1]
         self.ball_h = self.img.get_height()
         self.ball_w = self.img.get_width()
         self.pos = [(self.screen.get_width() - self.ball_w) // 2,
                     (self.screen.get_height() - self.ball_h) // 2]
-
-    def render(self):
-        self.screen.blit(self.img, self.pos)
 
     def move(self, racket: Racket):
         if self.pos[1] <= 0 or self.pos[1] >= SCREEN_H - self.ball_h:
