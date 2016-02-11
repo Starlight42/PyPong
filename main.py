@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from game import Game
+from menu import MainMenu
 from constant import (SCREEN_SIZE, SCREEN_ORI,
                       BG_PATH, BLACK)
 
@@ -13,6 +14,7 @@ def main():
     background = pygame.image.load(BG_PATH).convert_alpha()
     pygame.display.set_caption('PyPong')
     game = Game(screen)
+    menu = MainMenu(screen)
 
     while RUN:
         for event in pygame.event.get():
@@ -20,9 +22,10 @@ def main():
                     (event.type == KEYDOWN and event.key == K_ESCAPE):
                 RUN = False
             if event.type == KEYDOWN and event.key == K_RETURN:
+                #menu.start()
                 game.start()
 
-        pygame.draw.rect(screen, BLACK, (0, 0) + SCREEN_SIZE)
+        pygame.draw.rect(screen, BLACK, SCREEN_ORI + SCREEN_SIZE)
         screen.blit(background, SCREEN_ORI)
         pygame.display.flip()
 
