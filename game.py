@@ -16,7 +16,6 @@ class Game(BaseLoop):
 
     def setup(self):
         super(Game, self).setup()
-        pygame.key.set_repeat(200, 50)
         self.FPSCLOCK = pygame.time.Clock()
         self.racket_p1 = Racket(self.screen)
         self.ball = Ball(self.screen)
