@@ -8,6 +8,7 @@ class BaseLoop():
 
     def setup(self):
         self.LOOP_RUN = True
+        pygame.key.set_repeat(200, 50)
 
     def update_screen(self):
         pygame.draw.rect(self.screen, BLACK, SCREEN_ORI + SCREEN_SIZE)
