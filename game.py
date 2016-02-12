@@ -1,9 +1,11 @@
 import pygame
 from pygame.locals import *
-from constant import *
-from base_loop import BaseLoop
-from racket import Racket
+
 from ball import Ball
+from base_class.base_loop import BaseLoop
+from constant import *
+from racket import Racket
+
 
 class Game(BaseLoop):
     def __init__(self, screen: pygame.Surface):

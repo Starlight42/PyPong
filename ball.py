@@ -1,8 +1,8 @@
 import pygame
-from racket import Racket
+from base_class.base_object import BaseObject
 from constant import *
-from base_object import BaseObject
-from random import randint
+from racket import Racket
+
 
 class Ball(BaseObject):
     def __init__(self, screen: pygame.Surface):

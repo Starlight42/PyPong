@@ -1,7 +1,9 @@
 import pygame
 from pygame.locals import *
+
+from base_class.base_loop import BaseLoop
 from constant import *
-from base_loop import BaseLoop
+
 
 class MainMenu(BaseLoop):
     def __init__(self, screen: pygame.Surface):

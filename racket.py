@@ -1,6 +1,8 @@
 import pygame
+
+from base_class.base_object import BaseObject
 from constant import *
-from base_object import BaseObject
+
 
 class Racket(BaseObject):
     def __init__(self, screen: pygame.Surface, size=4):
