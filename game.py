@@ -38,7 +38,7 @@ class Game(BaseLoop):
             self.LOOP_RUN = False
             print('Ending the game...')
 
-    def start(self):
+    def start(self, game_type="one_player"):
         print('Starting the game...')
         super(Game, self).start()
 
