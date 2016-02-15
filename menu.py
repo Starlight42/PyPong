@@ -23,13 +23,18 @@ class MainMenu(BaseLoop):
         super(MainMenu, self).setup()
         self.menu[0].select(True)
 
+        for item in self.menu[1:]:
+            item.select(False)
+
     def update_screen(self):
         super(MainMenu, self).update_screen()
+
         for item in self.menu:
             if item.selected:
                 item.render(RED)
             else:
                 item.render(BLUE)
+
 
     def find_select(self, direction):
         for index, menu in enumerate(self.menu):
@@ -41,6 +46,11 @@ class MainMenu(BaseLoop):
                     self.menu[0 if (index+1) == len(self.menu) else index + 1].select(True)
                 break
 
+    def get_selected_item(self):
+        for index, menu in enumerate(self.menu):
+            if menu.selected:
+                return index
+
     def process_event(self, event: pygame.event):
         if event.type == KEYDOWN:
             if event.key == CONTROLS[UP]:
@@ -48,7 +58,10 @@ class MainMenu(BaseLoop):
             elif event.key == CONTROLS[DOWN]:
                 self.find_select(DOWN)
             elif event.key == K_RETURN:
-                self.game.start()
+                if MENU_ITEMS[self.get_selected_item()] is "quit":
+                    self.LOOP_RUN = False
+                else:
+                    self.game.start(MENU_ITEMS[self.get_selected_item()])
 
         if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
             self.LOOP_RUN = False
