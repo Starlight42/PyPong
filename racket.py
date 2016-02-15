@@ -12,6 +12,7 @@ class Racket(BaseObject):
         self.screen_w = self.screen.get_width()
         self.img = pygame.image.load(RACKET_P1).convert_alpha()
         self.pos = [5, (self.screen_h - self.img.get_height()) // 2]
+        self.img_rect = self.img.get_rect()
 
     def move(self, vec: int=STALL):
         if vec == UP:
