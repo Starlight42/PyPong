@@ -21,12 +21,19 @@ STALL = -1
 UP = 0
 DOWN = 1
 RACKET_SPEED = 20  # In pixel/second
-BALL_SPEED = 4  # In pixel/second
+BALL_SPEED = 20  # In pixel/second
 
 # keys constant
 CONTROLS = {
     UP: K_UP,
     DOWN: K_DOWN
+}
+
+# Menu item constant
+MENU_ITEMS = {
+    0: "one_player",
+    1: "two_player",
+    2: "quit"
 }
 
 # Color constant
