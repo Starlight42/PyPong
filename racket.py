@@ -8,9 +8,9 @@ class Racket(BaseObject):
     def __init__(self, screen: pygame.Surface, size=4):
         super(Racket, self).__init__(screen)
         self.size = size
+        self.img = pygame.image.load(RACKET_P1).convert_alpha()
         self.screen_h = self.screen.get_height()
         self.screen_w = self.screen.get_width()
-        self.img = pygame.image.load(RACKET_P1).convert_alpha()
         self.pos = [5, (self.screen_h - self.img.get_height()) // 2]
         self.img_rect = self.img.get_rect()
 
