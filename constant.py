@@ -14,14 +14,17 @@ SCREEN_ORI = (0, 0)
 ASSETS_DIR = 'assets/'
 BG_PATH = os.path.join(os.getcwd(), ASSETS_DIR + 'Start_screen.jpg')
 RACKET_P1 = os.path.join(os.getcwd(), ASSETS_DIR + 'Racket_p1.png')
-BALL = os.path.join(os.getcwd(), ASSETS_DIR + 'Ball.png')
 
 # Racket constant
 STALL = -1
 UP = 0
 DOWN = 1
 RACKET_SPEED = 20  # In pixel/second
+
+# Ball constant
+BALL_RADIUS = 18
 BALL_SPEED = 20  # In pixel/second
+BALL = os.path.join(os.getcwd(), ASSETS_DIR + 'Ball.png')
 
 # keys constant
 CONTROLS = {
