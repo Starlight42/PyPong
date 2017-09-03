@@ -11,6 +11,7 @@ class Game(BaseLoop):
     def __init__(self, screen: pygame.Surface):
         super(Game, self).__init__(screen)
         self.FPSCLOCK = None
+        self.game_type = None
         self.racket_p1 = Racket(self.screen)
         self.racket_p2 = None
         self.ball = Ball(self.screen)
@@ -44,8 +45,8 @@ class Game(BaseLoop):
 
     def start(self, game_type="one_player"):
         print('Starting the game...')
-        self.game_type = game_type
         super(Game, self).start()
+        self.game_type = game_type
 
         while self.LOOP_RUN:
             for event in pygame.event.get():
