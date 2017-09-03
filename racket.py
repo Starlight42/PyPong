@@ -15,7 +15,6 @@ class Racket(BaseObject):
         self.pos = [5 if mode is None else (self.screen_w-(5+self.paddle.width)),
                     (self.screen_h - self.paddle.height) // 2]
 
-
     def render(self):
         self.paddle = pygame.draw.rect(self.screen, BLUE, (self.pos[0], self.pos[1], 20, 80))
 

@@ -4,6 +4,7 @@ from menu import MainMenu
 from constant import (SCREEN_SIZE, SCREEN_ORI,
                       BG_PATH, BLACK)
 
+
 def main():
     print('Press return to start the game')
 

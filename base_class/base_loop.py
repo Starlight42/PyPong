@@ -1,7 +1,8 @@
 import pygame
 from constant import *
 
-class BaseLoop():
+
+class BaseLoop:
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
         self.LOOP_RUN = True

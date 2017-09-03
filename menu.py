@@ -35,7 +35,6 @@ class MainMenu(BaseLoop):
             else:
                 item.render(BLUE)
 
-
     def find_select(self, direction):
         for index, menu in enumerate(self.menu):
             if menu.selected:

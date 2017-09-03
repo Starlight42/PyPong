@@ -1,6 +1,7 @@
 import pygame
 
-class BaseObject():
+
+class BaseObject:
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
         self.pos = []

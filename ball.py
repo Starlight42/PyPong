@@ -27,9 +27,9 @@ class Ball(BaseObject):
         if self.vec[0] == -1 and racket_p1.paddle.right == self.ball.left and \
                         racket_p1.paddle.top < self.ball.top and \
                         racket_p1.paddle.bottom > self.ball.bottom:
-           self.vec[0] *= -1
+            self.vec[0] *= -1
         elif self.vec[0] == 1 and racket_p2.paddle.left == self.ball.right:
-           self.vec[0] *= -1
+            self.vec[0] *= -1
 
     def move(self, racket_p1: Racket, racket_p2=None):
         self.check_edge_collision()
